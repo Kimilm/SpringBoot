@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="${versionResourceResolver.getForLookupPath('/assets/style.css')}" />
+    <title>thymeleaf2</title>
+    <link rel="stylesheet" th:href="${versionResourceResolver.getForLookupPath('/assets/css/style.css')}" />
+</head>
+
+<body>
+    <div th:object="${product}">
+        <p>name: <span th:text="*{name}"></span></p>
+        <p>name: <span th:text="*{color}"></span></p>
+        <p>name: <span th:text="*{price}"></span></p>
+        <div th:if="${product.price} > 3000" th:text="비싸다" />
+        <div th:if="${product.price} > 1500" th:text="적당하다" />
+
+        <div th:unless="${product.price} > 3000" th:text="비싸다" />
+    </div>
+</body>
+
+</html>
