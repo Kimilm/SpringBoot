@@ -1,14 +1,15 @@
 
-package info.thecodinglive.xmlConfig;
+package info.thecodinglive.javaConfig;
 
-import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import basic.WorkService;
 
-
-public class XmlSpringApp {
+public class JavaConfigSpringApp {
 	public static void main (String [] args) {
-		GenericXmlApplicationContext context = new GenericXmlApplicationContext("classpath:applicationContext.xml");
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		context.register(BeanConfig.class);
+		context.refresh();
 		
 		WorkService yourWorkService = context.getBean("yourWorkService", WorkService.class);
 		yourWorkService.askWork();
