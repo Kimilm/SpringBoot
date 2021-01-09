@@ -1,0 +1,68 @@
+package info.thecodinglive.model;
+
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+public class User {
+    private int userNo;
+    private String userId;
+    private String email;
+    private String uname;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date regDate;
+
+    public User(int userNo, String userId, String email, String uname, Date regDate) {
+        this.userNo = userNo;
+        this.userId = userId;
+        this.email = email;
+        this.uname = uname;
+        this.regDate = regDate;
+    }
+
+    public User() {
+
+    }
+
+    public int getUserNo() {
+        return this.userNo;
+    }
+
+    public void setUserNo(int userNo) {
+        this.userNo = userNo;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUname() {
+        return this.uname;
+    }
+
+    public void setUname(String uname) {
+        this.uname = uname;
+    }
+
+    public Date getRegDate() {
+        return this.regDate;
+    }
+
+    public void setRegDate(Date regDate) {
+        this.regDate = regDate;
+    }
+
+}

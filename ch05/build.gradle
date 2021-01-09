@@ -1,0 +1,42 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.1'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+	id 'idea'
+}
+
+ext{
+    springBootVersion='2.4.1'
+	querydslVersion = "3.6.9"
+    generatedSourcesDir = file("${buildDir}/generated-sources")
+}
+
+group = 'info.thecodinglive'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.slf4j:slf4j-api:1.7.7'
+
+    // Swagger
+    compile group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
+
+    compile("org.springframework.boot:spring-boot-starter-hateoas")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile 'junit:junit:4.12'
+}
+
+test {
+	useJUnitPlatform()
+}
